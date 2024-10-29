@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/server.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <%- include("components/header") %>
+    </header>
+
+    <div class="CenterDiv">
+        <div class="sidebar">
+            <div class="Container">
+                <% server.forEach(element => { %>
+                    <div class="ServerPanel">
+                        <h1 class="ServerTitle"><%= element.ProcessName  %></h1>
+                        <h3 class="ServerStatus"><%= (element.IsOnline === false ?  "Status : Offline 🔴" : "Status : Online 🟢" ) %></h3>
+                    </div> 
+                  <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

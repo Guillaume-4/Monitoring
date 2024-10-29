@@ -68,6 +68,12 @@ app.get("/home", isAuthenticated, (req, res) => {
     res.render("home"); 
 });
 
+app.get("/server", isAuthenticated, async(req,res)=>{
+    const server = await executeQuery("SELECT ProcessName, IsOnline from Ref_Process")
+    console.log(server)
+    res.render("server", {server: server})
+})
+
 app.get("/restartok",isAuthenticated,(req, res)=>{
     const test = shutDownWin.reboot(20, false);
     console.log(test)
