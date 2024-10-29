@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/loginpage.css">
+    <title>Admin Panel : Login</title>
+</head>
+    <body>
+        <header>
+            <h1 class="PanelTitre">
+                Admin Panel VPS
+            </h1>
+        </header>
+        <div class="Cont">    
+            <div class="Container">
+                <div class="DivTitle">
+                    <h1 class="Title">
+                        Login
+                    </h1>
+                </div>
+                <div class="DivForm">
+                    <form action="/loginok" method="post">
+                        <input type="text" class="LoginForm" id="username" name="username" placeholder="Username" required> <br>
+                        <input type="password" class="LoginForm" id="password" name="password" placeholder="Password" required> <br>
+                        <button type="submit" id="SubmitButton"><b>Submit</b></button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</html>
