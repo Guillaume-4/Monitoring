@@ -17,7 +17,16 @@
                 <% server.forEach(element => { %>
                     <div class="ServerPanel">
                         <h1 class="ServerTitle"><%= element.ProcessName  %></h1>
-                        <h3 class="ServerStatus"><%= (element.IsOnline === false ?  "Status : Offline 🔴" : "Status : Online 🟢" ) %></h3>
+                        <h3 class="ServerStatus"><%= (element.IsOnline === false ?  "Status : Offline 🔴" : "Status : Online 🟢" ) %></h3> <br>
+                        <button class="Start Button" <%= element.IsOnline ? 'hidden' : '' %>>
+                            Start
+                        </button>
+                        <button class="Stop Button" <%= !element.IsOnline ? 'hidden' : '' %>>
+                            Stop
+                        </button>
+                        <button class="Restart Button" <%= !element.IsOnline ? 'hidden' : '' %>>
+                            Restart
+                        </button>
                     </div> 
                   <% }); %>
             </div>

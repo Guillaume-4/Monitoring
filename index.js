@@ -9,6 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 var hour = 1000 * 60 * 20;
 
+console.log(CryptoJS.AES.encrypt("P4N37-4DM1N",CRYPTO_KEY).toString())
+
 //-----USES-----
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -43,6 +45,8 @@ app.post('/loginok',async(req,res)=>{
         const DBPass = await executeQuery(
           `SELECT Password from Login where Username = '${user}'`
         );
+        console.log(DBPass)
+        console.log(CryptoJS.AES.decrypt(DBPass[0].Password, CRYPTO_KEY).toString())
         if (
           pass ===
           CryptoJS.AES.decrypt(DBPass[0].Password, CRYPTO_KEY).toString(CryptoJS.enc.Utf8)
@@ -70,7 +74,6 @@ app.get("/home", isAuthenticated, (req, res) => {
 
 app.get("/server", isAuthenticated, async(req,res)=>{
     const server = await executeQuery("SELECT ProcessName, IsOnline from Ref_Process")
-    console.log(server)
     res.render("server", {server: server})
 })
 

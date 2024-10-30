@@ -45,3 +45,39 @@
     overflow-y: auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.Button{
+    font-size: 1.5em;
+    border-color: unset;
+    border-width: 0;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 5px;
+    color: rgba(0, 0, 0, 0.85);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Start{
+    background-color: rgba(0, 190, 0, 0.692);    
+}
+
+.Start:hover{
+    background-color: rgba(0, 107, 0, 0.75);
+}
+
+.Stop{
+    background-color: rgba(223, 3, 3, 0.459);
+}
+
+.Stop:hover{
+    background-color: rgba(167, 2, 2, 0.75);
+}
+
+
+.Restart{
+    background-color: rgba(179, 101, 0, 0.664);
+}
+
+.Restart:hover{
+    background-color: rgba(145, 82, 0, 0.75);
+}
