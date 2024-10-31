@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 var hour = 1000 * 60 * 20;
 
-console.log(CryptoJS.AES.encrypt("P4N37-4DM1N",CRYPTO_KEY).toString())
+//console.log(CryptoJS.AES.encrypt("NEW PASSWORD",CRYPTO_KEY).toString())
 
 //-----USES-----
 app.set("view engine", "ejs");
