@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/server.css">
+    <script src="../script/Process.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -18,13 +19,13 @@
                     <div class="ServerPanel">
                         <h1 class="ServerTitle"><%= element.ProcessName  %></h1>
                         <h3 class="ServerStatus"><%= (element.IsOnline === false ?  "Status : Offline 🔴" : "Status : Online 🟢" ) %></h3> <br>
-                        <button class="Start Button" <%= element.IsOnline ? 'hidden' : '' %>>
+                        <button class="Start Button" <%= element.IsOnline ? 'hidden' : '' %> onclick="startProcess('<%= process.command %>')">
                             Start
                         </button>
-                        <button class="Stop Button" <%= !element.IsOnline ? 'hidden' : '' %>>
+                        <button class="Stop Button" <%= !element.IsOnline ? 'hidden' : '' %> onclick="stopProcess(<%= process.pid %>)">
                             Stop
                         </button>
-                        <button class="Restart Button" <%= !element.IsOnline ? 'hidden' : '' %>>
+                        <button class="Restart Button" <%= !element.IsOnline ? 'hidden' : '' %> onclick="restartProcess(<%= process.pid %>, '<%= process.command %>')">
                             Restart
                         </button>
                     </div> 
