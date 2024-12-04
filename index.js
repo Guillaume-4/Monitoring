@@ -6,14 +6,10 @@ const {executeQuery} = require("./db")
 const {CRYPTO_KEY} = require("./config")
 const shutDownWin = require('node-shutdown-windows');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 var hour = 1000 * 60 * 20;
 
-<<<<<<< HEAD
 //console.log(CryptoJS.AES.encrypt("NEW PASSWORD",CRYPTO_KEY).toString())
-=======
-console.log(CryptoJS.AES.encrypt("NEW-PASSWORD",CRYPTO_KEY).toString())
->>>>>>> 9d171b32be511123d617f7dce0bead54d7ac0daf
 
 //-----USES-----
 app.set("view engine", "ejs");
@@ -49,8 +45,6 @@ app.post('/loginok',async(req,res)=>{
         const DBPass = await executeQuery(
           `SELECT Password from Login where Username = '${user}'`
         );
-        console.log(DBPass)
-        console.log(CryptoJS.AES.decrypt(DBPass[0].Password, CRYPTO_KEY).toString())
         if (
           pass ===
           CryptoJS.AES.decrypt(DBPass[0].Password, CRYPTO_KEY).toString(CryptoJS.enc.Utf8)
